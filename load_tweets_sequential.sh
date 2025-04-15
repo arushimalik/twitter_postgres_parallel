@@ -1,6 +1,6 @@
 #!/bin/bash
 
-files=$(find data/*)
+files=$(find data -name "*.zip")
 
 echo '================================================================================'
 echo 'load denormalized'
