@@ -8,7 +8,7 @@ echo '==========================================================================
 time for file in $files; do
     echo
     unzip -p "$file" | sed 's/\\u0000//g' | \
-    psql "postgresql://postgres:pass@localhost:5433" 
+    psql "postgresql://postgres:pass@localhost:5431" 
     -c "COPY tweets_jsonb (data) FROM STDIN CSV QUOTE E'\x01' DELIMITER E'\x    02';"
 done
 
@@ -18,7 +18,7 @@ echo '==========================================================================
 time for file in $files; do
     echo
     python3 load_tweets.py \
-    --db "postgresql://postgres:pass@localhost:5434" 
+    --db "postgresql://postgres:pass@localhost:5435" 
     --inputs "$file"
 done
 
